@@ -1,3 +1,32 @@
+# テーブル設計
+
+## users テーブル
+
+| Column           | Type    | Options     |
+| ---------------- | ------- | ----------- |
+| nickname         | string  | null: false |
+| email            | string  | null: false |
+| password         | string  | null: false |
+
+### Association
+
+- has_many :items
+
+## items テーブル
+
+| Column        | Type       | Options                        |
+| ------------- | ---------- | ------------------------------ |
+| image         | string     | null: false                    |
+| name          | string     | null: false                    |
+| information   | text       | null: false                    |
+| category      | integer    | null: false,                   |
+| address       | string     | null: false,                   |
+
+
+### Association
+
+- belongs_to :users
+
 # README
 
 This README would normally document whatever steps are necessary to get the
