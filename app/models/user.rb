@@ -3,4 +3,19 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+
+  rege_user_x = /\A[ぁ-んァ-ン一-龥]/
+  rege_user_y = /\A[ァ-ヶー－]+\z/
+
+  with_options presence: true do
+    validates :nickname
+    validates :password, format: { with: /\A(?=.*?[a-z])(?=.*?[\d])[a-z\d]+\z/i}, confirmation: true
+    validates :family_name, format: { with: rege_user_x}
+    validates :first_name, format: { with: rege_user_x}
+    validates :family_name_kana, format: { with: rege_user_y}
+    validates :first_name_kana, format: { with: rege_user_y}
+    validates :birth_day
+  end
+
+  validates :email, format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/}
 end
