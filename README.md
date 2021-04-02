@@ -18,9 +18,9 @@
 | ------------- | ---------- | ------------------------------ |
 | image         | string     | null: false                    |
 | name          | string     | null: false                    |
+| address       | string     | null: false,                   |
 | information   | text       | null: false                    |
 | category      | integer    | null: false,                   |
-| address       | string     | null: false,                   |
 | user          | references | null: false, foreign_key: true |
 
 
