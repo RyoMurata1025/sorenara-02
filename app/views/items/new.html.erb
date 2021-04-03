@@ -5,7 +5,7 @@
   </header>
   <div class="items-sell-main">
     <h2 class="items-sell-title">投稿したい内容を入力</h2>
-    <%= form_with local: true do |f| %>
+    <%= form_with model: @item, url: items_path, local: true do |f| %>
 
     <%# インスタンスを渡して、エラー発生時にメッセージが表示されるようにしましょう。%>
     <%# render 'shared/error_messages', model: f.object %>
@@ -32,25 +32,25 @@
         撮影場所
         <span class="indispensable">必須</span>
       </div>
-      <%= f.text_area :hoge, class:"items-text", id:"item-name", placeholder:"例：東大寺（必須 20文字まで)", maxlength:"20" %>
+      <%= f.text_area :name, class:"items-text", id:"item-name", placeholder:"例：東大寺（必須 20文字まで)", maxlength:"20" %>
 
       <div class="weight-bold-text">
         撮影場所の住所
         <span class="indispensable">必須</span>
       </div>
-      <%= f.text_area :hoge, class:"items-text", id:"item-address", placeholder:"写真の住所（必須 50文字まで）" ,maxlength:"50" %>
+      <%= f.text_area :address, class:"items-text", id:"item-address", placeholder:"写真の住所（必須 50文字まで）" ,maxlength:"50" %>
 
       <div class="weight-bold-text">
         投稿内容
         <span class="indispensable">必須</span>
       </div>
-      <%= f.text_area :hoge, class:"items-text", id:"item-info", placeholder:"写真の説明（必須 1,000文字まで）" ,rows:"7" ,maxlength:"1000" %>
+      <%= f.text_area :information, class:"items-text", id:"item-info", placeholder:"写真の説明（必須 1,000文字まで）" ,rows:"7" ,maxlength:"1000" %>
 
       <div class="weight-bold-text">
         カテゴリー
         <span class="indispensable">必須</span>
       </div>
-      <%= f.collection_select(:category, Category.all, :id, :name, {include_blank: "---"}, {class:"select-box", id:"item-category"}) %>
+      <%= f.collection_select(:category_id, Category.all, :id, :name, {include_blank: "---"}, {class:"select-box", id:"item-category"}) %>
 
     </div>
     <%# /商品名と商品説明 %>

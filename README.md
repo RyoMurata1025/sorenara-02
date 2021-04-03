@@ -20,7 +20,7 @@
 | name          | string     | null: false                    |
 | address       | string     | null: false,                   |
 | information   | text       | null: false                    |
-| category      | integer    | null: false,                   |
+| category_id   | integer    | null: false,                   |
 | user          | references | null: false, foreign_key: true |
 
 
