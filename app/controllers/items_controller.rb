@@ -17,7 +17,6 @@ class ItemsController < ApplicationController
   end
 
   def update
-    binding.pry
     @item.update(item_params)
     if @item.valid?
       redirect_to item_path
