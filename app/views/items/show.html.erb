@@ -4,24 +4,19 @@
 <div class="item-show">
   <div class="item-box">
     <h2 class="name">
-      <%= "商品名" %>
+      <%= @item.name %>
     </h2>
     <div class="item-img-content">
-      <%= image_tag "item-sample.png" ,class:"item-box-img" %>
-      <%# 商品が売れている場合は、sold outを表示しましょう %>
-      <div class="sold-out">
-        <span>Sold Out!!</span>
-      </div>
-      <%# //商品が売れている場合は、sold outを表示しましょう %>
+      <%= image_tag @item.image.variant(resize:"500x500"), class: "item-box-img" if @item.image.attached?%>
     </div>
-    <div class="item-price-box">
+    <%# <div class="item-price-box">
       <span class="item-price">
         ¥ 999,999,999
       </span>
       <span class="item-postage">
-        <%= "配送料負担" %>
+        <%= "配送料負担" >
       </span>
-    </div>
+    </div> %>
 
 　 <% if user_signed_in? && current_user.id == @item.user_id %>
     <%= link_to "商品の編集", edit_item_path(@item.id), method: :get, class: "item-red-btn" %>
@@ -32,34 +27,31 @@
    <% end %>
 
     <div class="item-explain-box">
-      <span><%= "商品説明" %></span>
+      <span><%= "投稿説明" %></span>
     </div>
     <table class="detail-table">
       <tbody>
         <tr>
-          <th class="detail-item">出品者</th>
+          <th class="detail-item">撮影場所</th>
           <td class="detail-value"><%= "出品者名" %></td>
         </tr>
         <tr>
-          <th class="detail-item">カテゴリー</th>
+          <th class="detail-item">札例場所の住所</th>
           <td class="detail-value"><%= "カテゴリー名" %></td>
         </tr>
         <tr>
-          <th class="detail-item">商品の状態</th>
+          <th class="detail-item">投稿内容</th>
           <td class="detail-value"><%= "商品の状態" %></td>
         </tr>
         <tr>
-          <th class="detail-item">配送料の負担</th>
+          <th class="detail-item">カテゴリー</th>
           <td class="detail-value"><%= "発送料の負担" %></td>
         </tr>
         <tr>
-          <th class="detail-item">発送元の地域</th>
-          <td class="detail-value"><%= "発送元の地域" %></td>
+          <th class="detail-item">撮影者</th>
+          <td class="detail-value"><%= "撮影者" %></td>
         </tr>
-        <tr>
-          <th class="detail-item">発送日の目安</th>
-          <td class="detail-value"><%= "発送日の目安" %></td>
-        </tr>
+
       </tbody>
     </table>
     <div class="option">
@@ -69,7 +61,7 @@
       </div>
       <div class="report-btn">
         <%= image_tag "flag.png" ,class:"report-flag-icon" ,width:"20",height:"20"%>
-        <span>不適切な商品の通報</span>
+        <span>不適切な投稿の通報</span>
       </div>
     </div>
   </div>
@@ -91,14 +83,14 @@
   </div>
   <div class="links">
     <a href="#" class="change-item-btn">
-      ＜ 前の商品
+      ＜ 前の投稿
     </a>
     <a href="#" class="change-item-btn">
-      後ろの商品 ＞
+      後ろの投稿 ＞
     </a>
   </div>
   <%# 詳細ページで表示されている商品のカテゴリー名を表示しましょう %>
-  <a href="#" class="another-item"><%= "商品のカテゴリー名" %>をもっと見る</a>
+  <a href="#" class="another-item"><%= "投稿のカテゴリー名" %>をもっと見る</a>
   <%# //詳細ページで表示されている商品のカテゴリー名を表示しましょう %>
 </div>
 
