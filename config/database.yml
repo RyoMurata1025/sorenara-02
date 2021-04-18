@@ -50,5 +50,6 @@ test:
 production:
   <<: *default
   database: sorenara_02_production
-  username: sorenara_02
-  password: <%= ENV['SORENARA_02_DATABASE_PASSWORD'] %>
+  username: root
+  password: <%= ENV['DATABASE_PASSWORD'] %>
+  socket: /var/lib/mysql/mysql.sock
