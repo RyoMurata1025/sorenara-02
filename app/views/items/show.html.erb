@@ -33,23 +33,27 @@
       <tbody>
         <tr>
           <th class="detail-item">撮影場所</th>
-          <td class="detail-value"><%= "出品者名" %></td>
+          <td class="detail-value"><%= @item.name %></td>
         </tr>
         <tr>
-          <th class="detail-item">札例場所の住所</th>
-          <td class="detail-value"><%= "カテゴリー名" %></td>
+          <th class="detail-item">撮影場所の住所</th>
+          <td class="detail-value"><%= @item.address %></td>
+        </tr>
+        <tr>
+          <th class="detail-item">Google Map</th>
+          <td class="detail-value"><%= "ここにGoogleMapが表示される" %></td>
         </tr>
         <tr>
           <th class="detail-item">投稿内容</th>
-          <td class="detail-value"><%= "商品の状態" %></td>
+          <td class="detail-value"><%= @item.information %></td>
         </tr>
         <tr>
           <th class="detail-item">カテゴリー</th>
-          <td class="detail-value"><%= "発送料の負担" %></td>
+          <td class="detail-value"><%= @item.category.name %></td>
         </tr>
         <tr>
           <th class="detail-item">撮影者</th>
-          <td class="detail-value"><%= "撮影者" %></td>
+          <td class="detail-value"><%= @item.user.nickname %></td>
         </tr>
 
       </tbody>
