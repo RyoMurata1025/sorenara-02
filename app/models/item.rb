@@ -12,4 +12,7 @@ class Item < ApplicationRecord
     validates :information
     validates :category
   end
+
+  geocoded_by :address
+  after_validation :geocode
 end
