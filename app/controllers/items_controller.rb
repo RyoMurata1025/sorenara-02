@@ -11,6 +11,7 @@ class ItemsController < ApplicationController
   end
 
   def show
+    gon.item = @item
   end
 
   def edit
