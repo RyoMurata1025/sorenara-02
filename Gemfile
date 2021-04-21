@@ -77,3 +77,5 @@ group :production do
 end
 
 gem 'geocoder'
+
+gem 'gon'
